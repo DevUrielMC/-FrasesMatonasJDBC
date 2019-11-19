@@ -4,8 +4,7 @@ import java.sql.DriverManager;
 
 public class DatabaseUtil {
 
-	private static final String URL_FORMAT ="jdbc:%s://%s:%s/%s";
-	
+	private static final String URL_FORMAT = "jdbc:%s://%s:%s/%s?%s";
 	
 	public static Connection getConnection()
 	{
@@ -14,9 +13,9 @@ public class DatabaseUtil {
 		String port="3306";
 		String databaseName="frases_matonas";
 		String user="root";
-		String password = "root";
-		String url = String.format(URL_FORMAT,  dbms, host,port,databaseName);
-		
+		String password = "admin";
+		String timeZone = "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String url = String.format(URL_FORMAT, dbms, host, port, databaseName, timeZone);
 		
 		Connection connection= null;
 		
@@ -30,6 +29,15 @@ public class DatabaseUtil {
 		}
 		
 		return connection;
+	}
+	
+	public static void closeConnection(Connection conn)
+	{
+		try {
+			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
