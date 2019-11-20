@@ -1,11 +1,10 @@
-package com.frasesmatonasjdbc.model;
+package com.frasesmatonasjdbc.jdbc;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import org.junit.Test;
-
-
 
 public class TestDatabaseConnection {
 
@@ -13,14 +12,13 @@ public class TestDatabaseConnection {
 	public void testConnection() {
 		Connection connection = DatabaseUtil.getConnection();
 		assertNotNull("No se realizó la conección", connection);
-		
+
 		try {
-			
+
 			connection.close();
-			assertTrue("no se cerró la conneccion",	connection.isClosed());
+			assertTrue("no se cerró la conneccion", connection.isClosed());
 		} catch (Exception e) {
 
-			
 		}
 	}
 }
