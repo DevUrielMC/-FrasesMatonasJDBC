@@ -2,7 +2,7 @@ package com.frasesmatonasjdbc.model;
 
 import java.sql.Date;
 
-public class Frases {
+public class Frase {
 
 	private String contenido;
 	private int cantidad;
@@ -35,4 +35,7 @@ public class Frases {
 		this.fechaDesde = fechaDesde;
 	}
 
+	public String toString() {
+		return String.format("'%s',%d,'%s',contenido,cantidad,fechaDesde");
+	}
 }

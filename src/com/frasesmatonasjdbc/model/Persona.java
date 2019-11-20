@@ -1,12 +1,22 @@
 package com.frasesmatonasjdbc.model;
 
+import java.util.Date;
+
 public class Persona {
-
+	private int idPersona;
 	private String nombre;
-	private byte edad;
+	private int edad;
 	private String carrera;
-
+	private Date fecha;
 	
+	public int getIdPersona() {
+		return this.idPersona;
+
+	}
+
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
 	public String getNombre() {
 		return this.nombre;
 
@@ -16,12 +26,12 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	public byte getEdad() {
+	public int getEdad() {
 		return this.edad;
 
 	}
 
-	public void setEdad(byte edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 
@@ -34,4 +44,16 @@ public class Persona {
 		this.carrera = carrera;
 	}
 
+	public Date getFecha() {
+		return this.fecha;
+
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	
+	public String toString() {
+		return String.format("'%s',%d,'%s',nombre,edad,carrera");
+	}
 }
